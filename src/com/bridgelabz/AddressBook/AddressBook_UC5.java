@@ -1,39 +1,35 @@
 package com.bridgelabz.AddressBook;
 
-import java.util.Scanner;
+import java.util.ArrayList;
 
 public class AddressBook_UC5 {
 	
-	static Scanner sc = new Scanner(System.in);
-	public static void main(String[] args) {
-		int ch;
-		int choice;
-		Collection c = new Collection();
-		do {
-			System.out.println("Enter the choice: ");
-			System.out.println("1.Add contact ");
-			System.out.println("2.Display contact");
-			System.out.println("3.Edit contact");
-			System.out.println("4.Delete contact");
-			ch= sc.nextInt();
-			switch(ch) {
-			case 1: 
-				c.readData();
-				break;
-			case 2:
-				c.DisplayContacts();
-				break;
-			case 3:
-				c.editData();;
-				break;
-			case 4:
-				c.deleteData();
-				break;
+	ArrayList<Person_UC5> addressbook = new ArrayList<Person_UC5>();
 
-			}System.out.println("Do you want to continue? if yes then press 1");
-			choice = sc.nextInt();
-		}while(choice == 1);
+    /*
+    Adding Contacts using addContact method in the arraylist of addressbook
+     */
+    public ArrayList<Person_UC5> addContact(Person_UC5 person) {
+        this.addressbook.add(person);
+        return addressbook;
 
-	}
+    }
+
+        /*
+        Printing method
+         */
+
+    public void printAddressBook() {
+        for (Person_UC5 person : this.addressbook) {
+
+            System.out.println("First name = " + person.getFirstName());
+            System.out.println("last name = " + person.getLastName());
+            System.out.println("address = " + person.getAddress());
+            System.out.println("city = " + person.getCity());
+            System.out.println("state = " + person.getState());
+            System.out.println("zip = " + person.getZip());
+            System.out.println("phone number = " + person.getPhoneNumber());
+        }
+    }
 
 }
